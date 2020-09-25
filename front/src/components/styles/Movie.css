@@ -1,0 +1,44 @@
+.Movie {
+  display: flex;
+  background: white;
+  padding: 30px;
+  margin: 20px;
+  border: 2px solid darkgray;
+  border-radius: 5px;
+  width: 70vw;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.Movie-Info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+.Movie-Title {
+  font-size: 18pt;
+  font-weight: bold;
+  font-family: "Cinzel Decorative", cursive;
+}
+
+.Movie-Image {
+  width: 250px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 550px) {
+  .Movie {
+    flex-direction: column;
+    align-items: center;
+  }
+  .Movie-Info {
+    margin-left: 10px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .Movie-Image {
+    width: 200px;
+  }
+}
