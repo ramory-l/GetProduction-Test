@@ -3,6 +3,7 @@ import "./App.css";
 import Movie from "./components/Movie";
 import Nav from "./components/Nav";
 import { useQuery, gql } from "@apollo/client";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const GET_MOVIES = gql`
   query {
@@ -31,12 +32,14 @@ function App() {
     );
   });
   return (
-    <div className="App">
-      <header className="App-Header">
-        <Nav />
-      </header>
-      <div className="App-Container">{listOfMovies}</div>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-Header">
+          <Nav />
+        </header>
+        <div className="App-Container">{listOfMovies}</div>
+      </div>
+    </Router>
   );
 }
 
