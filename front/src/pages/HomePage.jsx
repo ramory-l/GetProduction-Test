@@ -23,6 +23,7 @@ function HomePage(props) {
     return (
       <Movie
         key={movie.id}
+        id={movie.id}
         title={movie.name}
         description={movie.description}
         img={movie.img}

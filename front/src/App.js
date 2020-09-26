@@ -3,6 +3,7 @@ import "./App.css";
 import Nav from "./components/Nav";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
+import MovieDetail from "./pages/MovieDetail";
 import {
   BrowserRouter as Router,
   Switch,
@@ -41,6 +42,9 @@ function App() {
         <Switch>
           <PrivateRoute path="/" exact>
             <HomePage />
+          </PrivateRoute>
+          <PrivateRoute path="/movie/:id">
+            <MovieDetail />
           </PrivateRoute>
           <Route path="/login">
             <LoginPage setUsername={setUsername} />
