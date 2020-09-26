@@ -1,0 +1,46 @@
+.Login {
+  display: flex;
+  justify-content: center;
+}
+
+.Login-Form {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  margin-top: 50px;
+  padding: 50px;
+  border: 1px solid black;
+}
+
+.Form-Title {
+  font-size: 18pt;
+  margin-bottom: 20px;
+  font-family: "Cinzel Decorative", cursive;
+}
+
+.Login-Form input {
+  outline: none;
+  border: 2px solid black;
+  border-radius: 3px;
+}
+
+.Login-Form button {
+  color: white;
+  align-self: center;
+  border: 1px solid black;
+  width: 70px;
+  border-radius: 5px;
+  background: black;
+}
+
+.Login-Form button:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.Login-Form input:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.Login-Form input:focus {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}

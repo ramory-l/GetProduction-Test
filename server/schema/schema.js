@@ -10,6 +10,7 @@ const {
 } = graphql;
 
 const Movies = require("../models/movies");
+const Users = require("../models/users");
 
 const MovieType = new GraphQLObjectType({
   name: "Movie",
@@ -19,6 +20,15 @@ const MovieType = new GraphQLObjectType({
     genre: { type: new GraphQLNonNull(GraphQLString) },
     description: { type: GraphQLString },
     img: { type: GraphQLString },
+  }),
+});
+
+const UserType = new GraphQLObjectType({
+  name: "User",
+  fields: () => ({
+    id: { type: GraphQLID },
+    name: { type: new GraphQLNonNull(GraphQLString) },
+    password: { type: new GraphQLNonNull(GraphQLString) },
   }),
 });
 
@@ -91,6 +101,16 @@ const Query = new GraphQLObjectType({
       type: new GraphQLList(MovieType),
       resolve(parent, args) {
         return Movies.find({});
+      },
+    },
+    user: {
+      type: UserType,
+      args: {
+        name: { type: GraphQLString },
+        password: { type: GraphQLString },
+      },
+      resolve(parent, args) {
+        return Users.findOne(args);
       },
     },
   },

@@ -1,21 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
-import Movie from "./components/Movie";
 import Nav from "./components/Nav";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+
+function PrivateRoute({ children, ...rest }) {
+  return (
+    <Route
+      {...rest}
+      render={({ location }) =>
+        localStorage.getItem("username") ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: location },
+            }}
+          />
+        )
+      }
+    />
+  );
+}
 
 function App() {
+  const [username, setUsername] = useState(localStorage.getItem("username"));
   return (
     <Router>
       <div className="App">
         <header className="App-Header">
-          <Nav />
+          <Nav username={username} />
         </header>
         <Switch>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/login" component={LoginPage} />
+          <PrivateRoute path="/" exact>
+            <HomePage />
+          </PrivateRoute>
+          <Route path="/login">
+            <LoginPage setUsername={setUsername} />
+          </Route>
         </Switch>
       </div>
     </Router>
