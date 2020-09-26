@@ -3,10 +3,3 @@
   min-height: 100vh;
   background: grey;
 }
-
-.App-Container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
