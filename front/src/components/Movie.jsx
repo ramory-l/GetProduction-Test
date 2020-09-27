@@ -6,7 +6,11 @@ function Movie(props) {
   return (
     <div className="Movie">
       <Link to={`/movie/${props.id}`}>
-        <img className="Movie-Image" src={props.img} alt="Movie"></img>
+        <img
+          className="Movie-Image"
+          src={props.img ? props.img : "/default-image.jpg"}
+          alt="Movie"
+        ></img>
       </Link>
       <div className="Movie-Info">
         <Link to={`/movie/${props.id}`}>
